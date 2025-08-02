@@ -1,0 +1,8 @@
+1. Download https://adoptium.net/de/temurin/releases?version=8&os=windows&arch=any&mode=filter und installierte zunächst Java 1.8 und setzte während der Installation die Option für die Systemvariable welche JAVA_HOME mit PATH hinzufügt
+2. Clone das GitHub Repository mit einer IDE oder GitHub Desktop URL: https://github.com/marytts/marytts
+3. Öffne die Powershell oder CMD wo das Repository liegt und navigiere in der Powershell mittels: cd marytts
+4. Gebe die Folgenden Befehle nacheinander ein 
+.\gradlew clean
+.\gradlew build
+.\gradlew run
+5. Gehe auf den Localhost http://localhost:59125/ oder 127.0.0.1:59125 im Browser
