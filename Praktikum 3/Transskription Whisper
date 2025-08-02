@@ -1,0 +1,19 @@
+#Code mittels google Collab ausführen
+
+!pip install openai-whisper
+
+!apt-get install -y ffmpeg
+
+!pip install sounddevice soundfile numpy
+
+import whisper
+
+audio_path = "Timeline 1.wav"
+
+model = whisper.load_model("base")
+
+result = model.transcribe(audio_path, language="de")
+
+
+print("\n Transkription:\n")
+print(result["text"])
