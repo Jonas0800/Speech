@@ -6,3 +6,6 @@
 .\gradlew build
 .\gradlew run
 5. Gehe auf den Localhost http://localhost:59125/ oder 127.0.0.1:59125 im Browser
+
+6. Für sprachen diesen befehl in die CMD eingeben gradlew.bat runInstallerGui
+
