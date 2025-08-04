@@ -1,11 +1,27 @@
+import argparse
+from pathlib import Path
 import opensmile
-smile = opensmile.Smile(
-    feature_set=opensmile.FeatureSet.eGeMAPSv02,
-    feature_level=opensmile.FeatureLevel.Functionals,
+
+def main():
+    parser = argparse.ArgumentParser(description="Extract eGeMAPS Functionals.")
+    parser.add_argument(
+    "audio",
+    type=Path,
+    nargs="?",
+    default=Path(r"#############################"),
+    help="#######################",
 )
-df = smile.process_file(r"#######################")
-df.to_csv("features_func.csv")
-print(df.shape, "Features")  
-df.to_csv("features_func.csv", index=True)
-print(df.columns[:10])   
-print(df.iloc[0].describe())
+
+    parser.add_argument("--out", type=Path, default=r"##################################", help="Output CSV path.")
+    args = parser.parse_args()
+
+    smile = opensmile.Smile(
+        feature_set=opensmile.FeatureSet.eGeMAPSv02,
+        feature_level=opensmile.FeatureLevel.Functionals,
+    )
+    df = smile.process_file(str(args.audio))
+    df.to_csv(args.out, index=True)
+    print(f"Saved {df.shape[1]} functionals to {args.out} (shape: {df.shape})")
+
+if __name__ == "__main__":
+    main()
